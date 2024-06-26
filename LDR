@@ -1,0 +1,26 @@
+int ldrpin=A0;
+int ledpin=5;
+int threshold=500;
+void setup()
+{
+  Serial.begin(9600);
+ 
+  digitalWrite(ledpin,OUTPUT);
+}
+void loop(){
+  int ldrvalue=analogRead(ldrpin);
+ 
+
+  Serial.print("LCR value: ");
+  
+  Serial.println(ldrvalue);
+  if(ldrvalue>threshold)
+  {
+    digitalWrite(ledpin,HIGH);
+    
+  }
+  else{
+    digitalWrite(ledpin,LOW);
+  }
+  delay(1000);
+}
